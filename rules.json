@@ -1,0 +1,1167 @@
+{
+    "rules": [
+        {
+            "Name": "R1",
+            "Projects": [
+                "Project6"
+            ],
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Open"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Rejected",
+                        "Is Duplicate",
+                        "Cannot Understand",
+                        "Cannot Project11roduce",
+                        "As Designed"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "copyValue",
+                    "Field": "System.AssignedTo",
+                    "Value": [
+                        "finder"
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "R2",
+            "Projects": [
+                "Project5"
+            ],
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Open",
+                        "Open Code Rev Fail"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Rejected"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "some@email.com"
+                }
+            ]
+        },
+        {
+            "Name": "R3",
+            "Projects": [
+                "Project4, Project6"
+            ],
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "New"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "some@email.com""
+                }
+            ]
+        },
+        {
+            "Name": "R4",
+            "Projects": [
+                "Project5"
+            ],
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "New"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "some@email.com""
+                }
+            ]
+        },
+        {
+            "Name": "R6",
+            "Projects": [
+                "Project4, Project5",
+                "Project6"
+            ],
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Is Duplicate"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "some@email.com""
+                }
+            ]
+        },
+        {
+            "Name": "R7",
+            "Projects": [
+                "Project11"
+            ],
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Open",
+                        "In Progress"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValueCoalesce",
+                    "Field": "System.AssignedTo",
+                    "Value": "!CodeReviewer, !PMReviewer, some@email.com""
+                }
+            ]
+        },
+        {
+            "Name": "R8",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Open",
+                        "In Progress"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed"
+                    ]
+                },
+                {
+                    "Type": "notNull",
+                    "Field": "CodeReviewer",
+                    "Value": null
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "copyValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "CodeReviewer"
+                }
+            ]
+        },
+        {
+            "Name": "R9",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Open",
+                        "In Progress"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed"
+                    ]
+                },
+                {
+                    "Type": "notNull",
+                    "Field": "PMReviewer",
+                    "Value": null
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "copyValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "PMReviewer"
+                }
+            ]
+        },
+        {
+            "Name": "R10",
+            "Projects": [
+                "Project2",
+                "Project3",
+                "Project4",
+                "Project5",
+                "Project6",
+                "Project7",
+                "Project8",
+                "Project9",
+                "Project10"
+            ],
+            "IncludeProject": false,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Open",
+                        "In Progress"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "some@email.com"
+                }
+            ]
+        },
+        {
+            "Name": "R11",
+            "Projects": [
+                "Project6"
+            ],
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "some@email.com"
+                }
+            ]
+        },
+        {
+            "Name": "R12",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValueCoalesce",
+                    "Field": "System.AssignedTo",
+                    "Value": "#qa,!System.AssignedTo"
+                }
+            ]
+        },
+        {
+            "Name": "R13",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Closed"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "some@email.com"
+                }
+            ]
+        },
+        {
+            "Name": "R14",
+            "Projects": [
+                "Project5"
+            ],
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Open",
+                        "Open Code Rev Fail,Research"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Cannot Understand"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "asome@email.com"
+                }
+            ]
+        },
+        {
+            "Name": "R15",
+            "Projects": [
+                "Project2",
+                "Project4",
+                "Project5",
+                "Project6"
+            ],
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Cannot Understand"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "some@email.com"
+                }
+            ]
+        },
+        {
+            "Name": "R16",
+            "Projects": [
+                "Project5"
+            ],
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Open",
+                        "Research"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Cannot Project11roduce"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "some@email.com"
+                }
+            ]
+        },
+        {
+            "Name": "R17",
+            "Projects": [
+                "Project4",
+                "Project5, Project6"
+            ],
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Cannot Project11roduce"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "some@email.com"
+                }
+            ]
+        },
+        {
+            "Name": "R18",
+            "Projects": [
+                "Project4"
+            ],
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Open"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "As Designed"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "some@email.com"
+                }
+            ]
+        },
+        {
+            "Name": "R19",
+            "Projects": [
+                "Project5"
+            ],
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Open"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "As Designed"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "some@email.com"
+                }
+            ]
+        },
+        {
+            "Name": "R20",
+            "Projects": [
+                "Automation for Radio"
+            ],
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Open"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "As Designed"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "some@email.com"
+                }
+            ]
+        },
+        {
+            "Name": "R21",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Rejected",
+                        "Is Duplicate",
+                        "Cannot Understand",
+                        "Cannot Project11roduce",
+                        "As Designed",
+                        "New"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValueCoalesce",
+                    "Field": "System.AssignedTo",
+                    "Value": "#dm,!System.AssignedTo"
+                }
+            ]
+        },
+        {
+            "Name": "R22",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Open Code Rev Fail"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValueCoalesce",
+                    "Field": "System.AssignedTo",
+                    "Value": "!Fixer,!System.AssignedTo"
+                }
+            ]
+        },
+        {
+            "Name": "R23",
+            "Projects": [
+                "Project11"
+            ],
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed Code Rev Pass"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValueCoalesce",
+                    "Field": "System.AssignedTo",
+                    "Value": "!PMReviewer,some@email.com"
+                }
+            ]
+        },
+        {
+            "Name": "R24",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed Code Rev Pass"
+                    ]
+                },
+                {
+                    "Type": "notNull",
+                    "Field": "PMReviewer",
+                    "Value": null
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "copyValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "PMReviewer"
+                }
+            ]
+        },
+        {
+            "Name": "R25",
+            "Projects": [
+                "Project2",
+                "Project3",
+                "Project4",
+                "Project5",
+                "Project6",
+                "Project7",
+                "Project8",
+                "Project9",
+                "Project10"
+            ],
+            "IncludeProject": false,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed Code Rev Pass"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "System.AssignedTo",
+                    "Value": "some@email.com"
+                }
+            ]
+        },
+        {
+            "Name": "R26",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed Code Rev Pass"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValueCoalesce",
+                    "Field": "System.AssignedTo",
+                    "Value": "#qa,!System.AssignedTo"
+                }
+            ]
+        },
+        {
+            "Name": "R27",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Needs Review"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Open",
+                        "Open Code Rev Fail"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValueCoalesce",
+                    "Field": "System.AssignedTo",
+                    "Value": "!Fixer,!System.AssignedTo"
+                }
+            ]
+        },
+        {
+            "Name": "R28",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 1,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Open",
+                        "In Progress"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Needs Review"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValueCoalesce",
+                    "Field": "System.AssignedTo",
+                    "Value": "!CodeReviewer,!System.AssignedTo"
+                }
+            ]
+        },
+        {
+            "Name": "R1.1",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 2,
+            "Conditions": [
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setCurrentTime",
+                    "Field": "FixedDate",
+                    "Value": null
+                }
+            ]
+        },
+        {
+            "Name": "R2.1",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 2,
+            "Conditions": [
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Open",
+                        "Open Code Rev Fail"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "setValue",
+                    "Field": "FixedDate",
+                    "Value": null
+                }
+            ]
+        },
+        {
+            "Name": "R3.1",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 3,
+            "Conditions": [
+                {
+                    "Type": "whenValidate",
+                    "Field": "System.State",
+                    "Value": [
+                        "Prevalidate",
+                        "Fixed",
+                        "Fixed Code Rev Pass"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "makeRequired",
+                    "Field": "FixedInVersionsID",
+                    "Value": "Fixed in versions is required"
+                }
+            ]
+        },
+        {
+            "Name": "R3.2",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 3,
+            "Conditions": [
+                {
+                    "Type": "whenValidate",
+                    "Field": "System.State",
+                    "Value": [
+                        "Needs Review"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "makeRequired",
+                    "Field": "CodeReviewer",
+                    "Value": "Code Reviewer is required"
+                },
+                {
+                    "Type": "makeRequired",
+                    "Field": "Fixer",
+                    "Value": "Fixer is required"
+                }
+            ]
+        },
+        {
+            "Name": "R3.4",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 3,
+            "Conditions": [
+                {
+                    "Type": "was",
+                    "Field": "System.State",
+                    "Value": [
+                        "Fixed",
+                        "Fixed Code Rev Pass"
+                    ]
+                },
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": [
+                        "Closed"
+                    ]
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "makeRequired",
+                    "Field": "FixedInVersionsID",
+                    "Value": "Fixed in versions is required"
+                }
+            ]
+        },
+        {
+            "Name": "R4.1",
+            "Projects": null,
+            "IncludeProject": true,
+            "Group": 4,
+            "Conditions": [
+                {
+                    "Type": "when",
+                    "Field": "System.State",
+                    "Value": null
+                }
+            ],
+            "Actions": [
+                {
+                    "Type": "makeRequired",
+                    "Field": "System.Title",
+                    "Value": "Title is required"
+                },
+                {
+                    "Type": "makeRequired",
+                    "Field": "System.AssignedTo",
+                    "Value": "AssignedTo is required"
+                }
+            ]
+        }
+    ],
+    "transitions": [
+        {
+            "From": "As Designed",
+            "To": [
+                "Closed",
+                "Open"
+            ]
+        },
+        {
+            "From": "Cannot Project11roduce",
+            "To": [
+                "Closed",
+                "Open"
+            ]
+        },
+        {
+            "From": "Cannot Understand",
+            "To": [
+                "Closed",
+                "Open"
+            ]
+        },
+        {
+            "From": "Closed",
+            "To": [
+                "Open"
+            ]
+        },
+        {
+            "From": "Fixed",
+            "To": [
+                "Closed",
+                "Open",
+                "Fixed Code Rev Pass",
+                "Open Code Rev Fail"
+            ]
+        },
+        {
+            "From": "Fixed Code Rev Pass",
+            "To": [
+                "Closed",
+                "Open"
+            ]
+        },
+        {
+            "From": "In Progress",
+            "To": [
+                "Open",
+                "Prevalidate",
+                "Fixed",
+                "Needs Review"
+            ]
+        },
+        {
+            "From": "Is Duplicate",
+            "To": [
+                "Closed",
+                "Open"
+            ]
+        },
+        {
+            "From": "New",
+            "To": [
+                "Open"
+            ]
+        },
+        {
+            "From": "On Hold",
+            "To": [
+                "Open"
+            ]
+        },
+        {
+            "From": "Open",
+            "To": [
+                "New",
+                "Is Duplicate",
+                "Prevalidate",
+                "Rejected",
+                "On Hold",
+                "In Progress",
+                "Cannot Understand",
+                "As Designed",
+                "Fixed",
+                "Research",
+                "Needs Review",
+                "Cannot Project11roduce"
+            ]
+        },
+        {
+            "From": "Prevalidate",
+            "To": [
+                "In Progress"
+            ]
+        },
+        {
+            "From": "Open Code Rev Fail",
+            "To": [
+                "Is Duplicate",
+                "Rejected",
+                "In Progress",
+                "Research",
+                "Cannot Understand"
+            ]
+        },
+        {
+            "From": "Rejected",
+            "To": [
+                "Closed",
+                "Open"
+            ]
+        },
+        {
+            "From": "Research",
+            "To": [
+                "Open",
+                "Cannot Understand",
+                "Cannot Project11roduce"
+            ]
+        },
+        {
+            "From": "Needs Review",
+            "To": [
+                "Open",
+                "Open Code Rev Fail"
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "Name": "Project1",
+            "Dm": "some@email.com",
+            "Qa": "some@email.com",
+            "Enable": true
+        },
+        {
+            "Name": "Project2",
+            "Dm": "some@email.com",
+            "Qa": "some@email.com",
+            "Enable": true
+        },
+        {
+            "Name": "Project3",
+            "Dm": "some@email.com",
+            "Qa": "some@email.com",
+            "Enable": true
+        },
+        {
+            "Name": "Project4",
+            "Dm": "some@email.com",
+            "Qa": "some@email.com",
+            "Enable": true
+        },
+        {
+            "Name": "Project5",
+            "Dm": "some@email.com",
+            "Qa": "some@email.com",
+            "Enable": true
+        },
+        {
+            "Name": "Project6",
+            "Dm": "some@email.com",
+            "Qa": "some@email.com",
+            "Enable": true
+        },
+        {
+            "Name": "Project7",
+            "Dm": "some@email.com",
+            "Qa": "some@email.com",
+            "Enable": true
+        },
+        {
+            "Name": "Project8",
+            "Dm": "some@email.com",
+            "Qa": "some@email.com",
+            "Enable": true
+        },
+        {
+            "Name": "Project9",
+            "Dm": "some@email.com",
+            "Qa": "some@email.com",
+            "Enable": true
+        },
+        {
+            "Name": "Project10",
+            "Dm": "some@email.com",
+            "Qa": "some@email.com",
+            "Enable": true
+        },
+        {
+            "Name": "Project11",
+            "Dm": null,
+            "Qa": null,
+            "Enable": true
+        },
+        {
+            "Name": "Project12",
+            "Dm": null,
+            "Qa": null,
+            "Enable": false
+        }
+    ]
+}

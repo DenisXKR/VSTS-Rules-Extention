@@ -1,0 +1,60 @@
+{
+    "manifestVersion": 1,
+    "id": "vsts-rule-extention",
+    "version": "0.2.94",
+    "name": "vsts-rule-extention",
+    "description": "VSTS Rule Extention",
+    "publisher": "EPAMSystems",
+    "icons": {
+        "default": "img/logo.png"
+    },
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "scopes": [
+        "vso.work", 
+        "vso.work_write"
+    ],
+    "branding": {
+        "color": "rgb(220, 235, 252)",
+        "theme": "light"
+    },
+    "files": [
+        {
+            "path": "img",
+            "addressable": true
+        },
+        {
+            "path": "build",
+            "addressable": true
+        },
+        {
+            "path": "rule.html",
+            "addressable": true
+        },
+        {
+            "path": "rules.json",
+            "addressable": true
+        }
+    ],
+    "categories": [
+        "Integrate"
+    ],
+    "contributions": [
+        {
+            "id": "rule-engine",
+            "type": "ms.vss-work-web.work-item-form-control",
+            "description": "Rule extention",
+            "targets": [
+                "ms.vss-work-web.work-item-form"
+            ],
+            "properties": {
+                "height": 1,
+                "name": "Rules",
+                "uri": "rule.html"
+            }
+        }
+    ]
+}

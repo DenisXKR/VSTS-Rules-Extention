@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "module": "amd",
+        "sourceMap": false,
+        "rootDir": "./scripts",
+        "moduleResolution": "node",
+        "noImplicitUseStrict": true,
+        "lib": [
+            "dom",
+            "es5",
+            "es6",
+            "es2015"
+        ]
+    },
+    "filesGlob": [
+        "./scripts/**/*.ts",
+        "!**/*.tests.ts"
+    ],
+    "files": [
+        "scripts/app.ts",
+        "scripts/dispatchers.ts",
+        "scripts/models.ts",
+        "scripts/rulesEngine.ts"
+    ]
+}
